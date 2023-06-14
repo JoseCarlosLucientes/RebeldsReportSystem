@@ -7,6 +7,7 @@ namespace RebeldsReportSystem.Infrastructure.Tests.Domain
 {
     public class RebeldsReportServiceTestSuite
     {
+
         [Fact]
         public void IntegrationTest_Register_InputValid_ReturnsVoid()
         {
