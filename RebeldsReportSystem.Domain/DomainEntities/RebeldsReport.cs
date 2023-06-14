@@ -6,7 +6,7 @@ namespace RebeldsReportSystem.Domain.DomainEntities
     {
         public string rebeldName;
         public string planetName;
-        public DateTime reportDate = DateTime.Now;
+        public DateTime reportDate = DateTime.UtcNow;
        
     }
 }

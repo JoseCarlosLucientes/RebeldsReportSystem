@@ -40,15 +40,22 @@ namespace RebeldsReportSystem.WebAPI.Controllers
                 // Devuelve una respuesta de error con el mensaje "nombre y planeta requeridos"
                 return BadRequest("name and planet required"); 
 
-            }    
-
+            }            
+            
             // Creamos una nueva instancia de la clase RebeldsReport
             RebeldsReport report = new RebeldsReport();          
             report.rebeldName = rebeldReport[0];
             report.planetName = rebeldReport[1];
 
-            try
+            // Comprobamos que los nombres no tengas menos de dos caracteres 
+            if (report.rebeldName.Length < 2 || report.planetName.Length < 2)
             {
+                return BadRequest("Insufficient characters, more than 2");
+            }
+
+            try
+            {              
+
                 // Llama al mtodo CreateRebeldReport del servicio para crear el informe de rebeldes                
                 _service.CreateRebeldReport(report);
 
